@@ -1,0 +1,10 @@
+<div class="doctor-card-container">
+  <h5>{{ doctor.name }}</h5>
+  <div class="info-container">
+    <app-info-display label="Username" [value]="doctor.username" />
+    <app-info-display label="Email" [value]="doctor.email" />
+    <app-info-display label="Phone" [value]="doctor.phone" />
+    <app-info-display label="Website" [value]="doctor.website" />
+  </div>
+  <a mat-raised-button [routerLink]="['/doctor/', doctor.id]">Show More</a>
+</div>

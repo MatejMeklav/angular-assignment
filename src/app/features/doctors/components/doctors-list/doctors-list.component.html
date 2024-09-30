@@ -1,0 +1,10 @@
+<div class="doctors-list-container">
+  <h4>Doctors</h4>
+  <div class="list-items">
+    @for (doctor of doctors; track doctor.id) {
+      <app-doctor-card [doctor]="doctor"></app-doctor-card>
+    } @empty {
+      <p>No doctors to display yet.</p>
+    }
+  </div>
+</div>

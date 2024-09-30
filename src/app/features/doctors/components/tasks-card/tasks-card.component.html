@@ -1,0 +1,16 @@
+<div class="task-card-container">
+  <h5>{{ task.title }}</h5>
+  <div class="completed-container">
+    <p>completed:</p>
+    <mat-icon
+      class="completed-logo"
+      *ngIf="task.completed"
+      aria-label="completed logo"
+      fontIcon="check_circle" />
+    <mat-icon
+      class="not-completed-logo"
+      *ngIf="!task.completed"
+      aria-label="not completed logo"
+      fontIcon="cancel" />
+  </div>
+</div>

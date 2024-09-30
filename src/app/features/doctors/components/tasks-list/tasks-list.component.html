@@ -1,0 +1,10 @@
+<div class="tasks-list-container">
+  <h4>Tasks</h4>
+  <div class="list-items">
+    @for (task of tasks; track task.id) {
+      <app-tasks-card [task]="task"></app-tasks-card>
+    } @empty {
+      <div>No tasks to display yet.</div>
+    }
+  </div>
+</div>

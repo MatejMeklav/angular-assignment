@@ -1,0 +1,16 @@
+.tasks-list-container {
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    font-weight: 500;
+    padding: 0 24px 16px;
+  }
+
+  .list-items {
+    padding: 0 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,27 @@
+.task-card-container {
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+  background-color: #ffff;
+  width: 380px;
+
+  h5 {
+    font-size: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .completed-container {
+    display: flex;
+    gap: 12px;
+
+    .completed-logo {
+      color: #75ad1f;
+    }
+
+    .not-completed-logo {
+      color: #e85640;
+    }
+  }
+}
