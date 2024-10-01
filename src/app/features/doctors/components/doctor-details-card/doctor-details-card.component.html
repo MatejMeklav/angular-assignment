@@ -1,0 +1,23 @@
+<div class="doctor-details-card">
+  <div class="header">
+    <h6>{{ doctor?.name }}</h6>
+    <a class="back-button" mat-fab extended routerLink="">
+      <mat-icon>arrow_back</mat-icon>
+      Back
+    </a>
+  </div>
+  <div class="details-container">
+    <app-data-cell label="Username" [value]="doctor?.username" />
+    <app-data-cell label="Email" [value]="doctor?.email" />
+    <app-data-cell label="Phone" [value]="doctor?.phone" />
+    <app-data-cell label="Website" [value]="doctor?.website" />
+    <app-data-cell label="City" [value]="doctor?.address?.city" />
+    <app-data-cell label="Street" [value]="doctor?.address?.street" />
+    <app-data-cell label="Zipcode" [value]="doctor?.address?.zipcode" />
+    <app-data-cell label="Suite" [value]="doctor?.address?.suite" />
+    <app-data-cell label="Company" [value]="doctor?.company?.name" />
+    <app-data-cell
+      label="Company Catchphrase"
+      [value]="doctor?.company?.catchPhrase" />
+  </div>
+</div>
