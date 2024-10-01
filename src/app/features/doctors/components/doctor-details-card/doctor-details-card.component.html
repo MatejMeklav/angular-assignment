@@ -1,12 +1,12 @@
 <div class="doctor-details-card">
   <div class="header">
-    <h6>{{ doctor?.name }}</h6>
+    <h6 class="mat-h6">{{ doctor?.name }}</h6>
     <a class="back-button" mat-fab extended routerLink="">
       <mat-icon>arrow_back</mat-icon>
       Back
     </a>
   </div>
-  <div class="details-container">
+  <div class="display-list background">
     <app-data-cell label="Username" [value]="doctor?.username" />
     <app-data-cell label="Email" [value]="doctor?.email" />
     <app-data-cell label="Phone" [value]="doctor?.phone" />

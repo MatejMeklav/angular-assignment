@@ -1,0 +1,10 @@
+@import "styles.scss";
+
+.info-display-container {
+  @include d-flex-a-flex-start-fd-column;
+  min-width: 248px;
+
+  h6 {
+    font-weight: 500;
+  }
+}

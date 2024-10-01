@@ -1,6 +1,6 @@
 <div class="doctors-list-container">
-  <h4>Doctors</h4>
-  <div class="list-items">
+  <h4 class="mat-h4">Doctors</h4>
+  <div class="display-list">
     @for (doctor of doctors; track doctor.id) {
       <app-doctor-card [doctor]="doctor"></app-doctor-card>
     } @empty {

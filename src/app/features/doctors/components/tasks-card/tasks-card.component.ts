@@ -8,7 +8,7 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [MatIcon, NgIf],
   templateUrl: './tasks-card.component.html',
-  styleUrl: './tasks-card.component.css',
+  styleUrl: './tasks-card.component.scss',
 })
 export class TasksCardComponent {
   @Input() task!: Task;

@@ -1,0 +1,45 @@
+@mixin text-overflow-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+
+@mixin d-list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+@mixin d-flex-a-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin d-flex-a-center-j-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin d-flex-a-flex-start-fd-column {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+@mixin d-flex-a-center-fd-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin d-flex-a-stretch-fd-column {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+
+

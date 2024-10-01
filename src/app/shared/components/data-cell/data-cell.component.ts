@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './data-cell.component.html',
-  styleUrl: './data-cell.component.css',
+  styleUrl: './data-cell.component.scss',
 })
 export class DataCellComponent {
   @Input() label!: string;

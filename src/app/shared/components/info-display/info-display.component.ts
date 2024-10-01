@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './info-display.component.html',
-  styleUrl: './info-display.component.css',
+  styleUrl: './info-display.component.scss',
 })
 export class InfoDisplayComponent {
   @Input() label!: string;

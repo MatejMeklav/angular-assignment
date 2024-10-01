@@ -8,7 +8,7 @@ import { DoctorCardComponent } from '../doctor-card/doctor-card.component';
   standalone: true,
   imports: [DoctorCardComponent],
   templateUrl: './doctors-list.component.html',
-  styleUrl: './doctors-list.component.css',
+  styleUrl: './doctors-list.component.scss',
 })
 export class DoctorsListComponent {
   doctors: Doctor[] = [];

@@ -8,7 +8,7 @@ import { TasksCardComponent } from '../tasks-card/tasks-card.component';
   standalone: true,
   imports: [DoctorCardComponent, TasksCardComponent],
   templateUrl: './tasks-list.component.html',
-  styleUrl: './tasks-list.component.css',
+  styleUrl: './tasks-list.component.scss',
 })
 export class TasksListComponent {
   @Input() tasks!: Task[];

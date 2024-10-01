@@ -1,0 +1,10 @@
+@import "styles.scss";
+
+.tasks-list-container {
+  @include d-flex-a-stretch-fd-column;
+
+  h4 {
+    font-weight: 500;
+    padding-bottom: 16px;
+  }
+}

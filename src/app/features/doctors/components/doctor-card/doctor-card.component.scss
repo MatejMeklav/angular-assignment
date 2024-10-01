@@ -1,6 +1,7 @@
+@import "styles.scss";
+
 .doctor-card-container {
-  display: flex;
-  flex-direction: column;
+  @include d-flex-a-stretch-fd-column;
   gap: 8px;
   padding: 16px;
   border-radius: 16px;

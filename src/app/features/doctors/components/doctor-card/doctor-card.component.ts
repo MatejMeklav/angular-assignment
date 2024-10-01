@@ -9,7 +9,7 @@ import { MatAnchor } from '@angular/material/button';
   standalone: true,
   imports: [RouterLink, InfoDisplayComponent, MatAnchor],
   templateUrl: './doctor-card.component.html',
-  styleUrl: './doctor-card.component.css',
+  styleUrl: './doctor-card.component.scss',
 })
 export class DoctorCardComponent {
   @Input() doctor!: Doctor;

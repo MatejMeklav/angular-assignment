@@ -1,3 +1,5 @@
+@import "styles.scss";
+
 .task-card-container {
   padding: 16px;
   border-radius: 16px;
@@ -7,14 +9,17 @@
 
   h5 {
     font-size: 24px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    @include text-overflow-ellipsis;
   }
 
   .completed-container {
-    display: flex;
+    @include d-flex-a-center;
     gap: 12px;
+
+    p {
+      margin: 0;
+    }
+
 
     .completed-logo {
       color: #75ad1f;

@@ -12,7 +12,7 @@ import { DoctorsService } from '../../services/doctors.service';
   standalone: true,
   imports: [TasksListComponent, DoctorDetailsCardComponent],
   templateUrl: './doctor-details.component.html',
-  styleUrl: './doctor-details.component.css',
+  styleUrl: './doctor-details.component.scss',
 })
 export class DoctorDetailsComponent {
   tasks: Task[] = [];

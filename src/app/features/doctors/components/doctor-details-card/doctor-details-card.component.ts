@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [DataCellComponent, MatIcon, MatFabAnchor, RouterLink],
   templateUrl: './doctor-details-card.component.html',
-  styleUrl: './doctor-details-card.component.css',
+  styleUrl: './doctor-details-card.component.scss',
 })
 export class DoctorDetailsCardComponent {
   @Input() doctor?: Doctor;
