@@ -97,8 +97,7 @@
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss",
-              "src/mixins.scss",
-              "src/typography.scss"
+              "src/mixins.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
