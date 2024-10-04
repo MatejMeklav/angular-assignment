@@ -1,0 +1,6 @@
+@import "styles.scss";
+
+.spinner-container {
+  @include d-flex-a-center-fd-column;
+  max-width: 1332px;
+}

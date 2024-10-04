@@ -1,10 +1,21 @@
 <div class="tasks-list-container">
   <h4 class="mat-h4">Tasks</h4>
-  <div class="display-list">
-    @for (task of tasks; track task.id) {
-      <app-tasks-card [task]="task"></app-tasks-card>
-    } @empty {
-      <div>No tasks to display yet.</div>
-    }
-  </div>
+  <app-spinner [isLoading]="isLoading">
+    <div class="display-list">
+      <div class="list-content">
+        @for (task of tasks; track task.id) {
+          <app-tasks-card [task]="task" />
+        } @empty {
+          <div>No tasks to display yet.</div>
+        }
+      </div>
+      <button
+        *ngIf="!!tasks.length"
+        mat-fab
+        extended
+        (click)="handleButtonClick()">
+        {{ isShowMore ? 'Show More' : 'Show Less' }}
+      </button>
+    </div>
+  </app-spinner>
 </div>

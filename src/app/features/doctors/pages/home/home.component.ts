@@ -13,10 +13,26 @@ import { TaskService } from '../../services/task-service';
 })
 export class HomeComponent {
   tasks: Task[] = [];
+  isLoading = false;
+  tasksDisplayed = 9;
+  tasksLength = 0;
+  isShowMore = true;
+
+  changeTasksDisplayed(val: number) {
+    this.tasksDisplayed = val;
+  }
 
   constructor(private tasksService: TaskService) {
-    this.tasksService.getTasks().subscribe(data => {
-      this.tasks = data;
+    this.isLoading = true;
+    this.tasksService.tasksObs$.subscribe({
+      next: data => {
+        this.tasksLength = data.length;
+        this.tasks = data.slice(0, this.tasksDisplayed);
+        this.isShowMore = this.tasksDisplayed <= this.tasksLength;
+        this.isLoading = false;
+      },
+      error: () => (this.isLoading = false),
     });
+    this.tasksService.fetchTasks();
   }
 }

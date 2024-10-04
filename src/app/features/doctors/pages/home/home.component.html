@@ -1,4 +1,11 @@
 <div class="dashboard-container">
-  <app-doctors-list></app-doctors-list>
-  <app-tasks-list [tasks]="tasks"></app-tasks-list>
+  <app-doctors-list class="fullWidth" />
+  <app-tasks-list
+    class="fullWidth"
+    [tasks]="tasks"
+    [tasksLength]="tasksLength"
+    [tasksDisplayed]="tasksDisplayed"
+    (tasksDisplayedEmit)="changeTasksDisplayed($event)"
+    [isLoading]="isLoading"
+    [isShowMore]="isShowMore" />
 </div>

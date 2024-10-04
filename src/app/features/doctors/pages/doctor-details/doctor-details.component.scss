@@ -1,7 +1,8 @@
 @import "styles.scss";
 
 .doctor-details-container {
-  @include d-flex-a-center-fd-column;
+  @include d-flex-a-flex-start-fd-column;
+  max-width: 1460px;
   gap: 24px;
   padding: 0 32px;
 }

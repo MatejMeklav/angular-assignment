@@ -2,6 +2,8 @@
 
 .tasks-list-container {
   @include d-flex-a-stretch-fd-column;
+  width: 100%;
+  min-height: 480px;
 
   h4 {
     font-weight: 500;

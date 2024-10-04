@@ -5,5 +5,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .display-list {
+  @include d-flex-a-center-fd-column;
+  gap: 24px;
+}
+
+.list-content {
   @include d-list;
+}
+
+.fullWidth {
+  width: 100%;
 }

@@ -1,10 +1,25 @@
 <div class="doctors-list-container">
   <h4 class="mat-h4">Doctors</h4>
-  <div class="display-list">
-    @for (doctor of doctors; track doctor.id) {
-      <app-doctor-card [doctor]="doctor"></app-doctor-card>
-    } @empty {
-      <p>No doctors to display yet.</p>
-    }
-  </div>
+  <app-spinner [isLoading]="isLoading">
+    <div class="display-list">
+      <div class="list-content">
+        @for (doctor of doctors; track doctor.id) {
+          <app-doctor-card [doctor]="doctor" />
+        } @empty {
+          <p>No doctors to display yet.</p>
+        }
+      </div>
+      <button
+        *ngIf="!!doctorsLength"
+        mat-fab
+        extended
+        (click)="displayMoreLess()">
+        {{
+          this.doctorsDisplayed >= this.doctorsLength
+            ? 'Show Less'
+            : 'Show More'
+        }}
+      </button>
+    </div>
+  </app-spinner>
 </div>
