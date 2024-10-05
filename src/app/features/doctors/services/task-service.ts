@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TaskService {
   private tasksFetchSubj = new Subject<void>();
+  private doctorsTasksFetchSubj = new Subject<string>();
+
+  constructor(private http: HttpClient) {}
 
   tasksObs$: Observable<Task[]> = this.tasksFetchSubj.pipe(
     switchMap(() => {
@@ -15,13 +18,17 @@ export class TaskService {
     })
   );
 
-  constructor(private http: HttpClient) {}
+  doctorsTasksObs$: Observable<Task[]> = this.doctorsTasksFetchSubj.pipe(
+    switchMap(userId => {
+      return this.http.get<Task[]>(`users/${userId}/todos`);
+    })
+  );
 
   fetchTasks(): void {
     this.tasksFetchSubj.next();
   }
 
-  getTasksByDoctorId(userId: number): Observable<Task[]> {
-    return this.http.get<Task[]>(`users/${userId}/todos`);
+  fetchTasksByDoctorId(id: string): void {
+    this.doctorsTasksFetchSubj.next(id);
   }
 }

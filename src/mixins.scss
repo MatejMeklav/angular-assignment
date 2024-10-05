@@ -23,6 +23,12 @@
   justify-content: space-between;
 }
 
+@mixin d-flex-a-center-j-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin d-flex-a-flex-start-fd-column {
   display: flex;
   align-items: flex-start;

@@ -1,4 +1,14 @@
 <div class="doctor-details-container">
-  <app-doctor-details-card [doctor]="doctorDetails" />
-  <app-tasks-list [tasks]="tasks" />
+  <app-doctor-details-card
+    class="full-width"
+    [doctor]="doctorDetails"
+    [isError]="isErrorDoctorDetails"
+    [isLoading]="isLoadingDoctorDetails" />
+  <app-tasks-list
+    class="full-width"
+    [tasks]="tasks"
+    [isShowMore]="isShowMore"
+    [isError]="isErrorTasks"
+    [isLoading]="isLoadingTasks"
+    (tasksDisplayedEmit)="changeTasksDisplayed()" />
 </div>

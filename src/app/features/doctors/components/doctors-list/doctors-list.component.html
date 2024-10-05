@@ -6,7 +6,11 @@
         @for (doctor of doctors; track doctor.id) {
           <app-doctor-card [doctor]="doctor" />
         } @empty {
-          <p>No doctors to display yet.</p>
+          @if (isError) {
+            <app-error />
+          } @else {
+            <p class="mat-caption">No doctors to display yet.</p>
+          }
         }
       </div>
       <button

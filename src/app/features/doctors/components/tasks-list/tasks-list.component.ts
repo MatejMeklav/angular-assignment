@@ -5,8 +5,7 @@ import { TasksCardComponent } from '../tasks-card/tasks-card.component';
 import { SpinnerComponent } from '../../../../shared/components/spinner/spinner.component';
 import { MatFabButton } from '@angular/material/button';
 import { NgIf } from '@angular/common';
-import { TaskService } from '../../services/task-service';
-import { displayElementsUtil } from '../../../../shared/utils/displayElementsUtil';
+import { ErrorComponent } from '../../../../shared/component/error/error.component';
 
 @Component({
   selector: 'app-tasks-list',
@@ -17,6 +16,7 @@ import { displayElementsUtil } from '../../../../shared/utils/displayElementsUti
     SpinnerComponent,
     MatFabButton,
     NgIf,
+    ErrorComponent,
   ],
   templateUrl: './tasks-list.component.html',
   styleUrl: './tasks-list.component.scss',
@@ -24,21 +24,13 @@ import { displayElementsUtil } from '../../../../shared/utils/displayElementsUti
 export class TasksListComponent {
   @Input() tasks!: Task[];
   @Input() isLoading!: boolean;
+  @Input() isError!: boolean;
   @Input() isShowMore!: boolean;
   @Input() tasksDisplayed!: number;
   @Input() tasksLength!: number;
-  @Input() displayMoreLess!: () => void;
   @Output() tasksDisplayedEmit = new EventEmitter<number>();
 
-  setDisplayTasks() {
-    const value = displayElementsUtil(this.tasksDisplayed, this.tasksLength, 9);
-    this.tasksDisplayedEmit.emit(value);
-  }
-
-  constructor(private tasksService: TaskService) {}
-
-  handleButtonClick() {
-    this.setDisplayTasks();
-    this.tasksService.fetchTasks();
+  emitDisplayTasks() {
+    this.tasksDisplayedEmit.emit();
   }
 }

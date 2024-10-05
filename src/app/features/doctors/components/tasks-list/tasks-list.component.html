@@ -6,14 +6,18 @@
         @for (task of tasks; track task.id) {
           <app-tasks-card [task]="task" />
         } @empty {
-          <div>No tasks to display yet.</div>
+          @if (isError) {
+            <app-error />
+          } @else {
+            <p class="mat-caption">No tasks to display yet.</p>
+          }
         }
       </div>
       <button
         *ngIf="!!tasks.length"
         mat-fab
         extended
-        (click)="handleButtonClick()">
+        (click)="emitDisplayTasks()">
         {{ isShowMore ? 'Show More' : 'Show Less' }}
       </button>
     </div>

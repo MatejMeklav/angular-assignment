@@ -1,4 +1,9 @@
 <div class="data-cell-container">
   <p class="mat-caption label">{{ label }}</p>
-  <p class="mat-caption value">{{ value }}</p>
+  <p
+    class="{{
+      isLoading ? 'loading-skeleton mat-caption value' : 'mat-caption value'
+    }}">
+    {{ value }}
+  </p>
 </div>

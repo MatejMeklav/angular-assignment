@@ -6,14 +6,18 @@
 
   .header {
     @include d-flex-a-center-j-space-between;
+    height: 44px;
 
     .back-button {
       height: 34px;
     }
 
-    h6 {
+    h6,name {
+      width: 180px;
+      height: 32px;
       color: #323d3e;
       font-weight: 500;
+      margin: 0;
     }
   }
 

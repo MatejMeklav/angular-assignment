@@ -6,21 +6,33 @@ import { SpinnerComponent } from '../../../../shared/components/spinner/spinner.
 import { MatFabButton } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { displayElementsUtil } from '../../../../shared/utils/displayElementsUtil';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
+import { ErrorComponent } from '../../../../shared/component/error/error.component';
 
 @Component({
   selector: 'app-doctors-list',
   standalone: true,
-  imports: [DoctorCardComponent, SpinnerComponent, MatFabButton, NgIf],
+  imports: [
+    DoctorCardComponent,
+    SpinnerComponent,
+    MatFabButton,
+    NgIf,
+    ErrorComponent,
+  ],
   templateUrl: './doctors-list.component.html',
   styleUrl: './doctors-list.component.scss',
 })
 export class DoctorsListComponent {
   doctors: Doctor[] = [];
   isLoading = false;
-  doctorsDisplayed = 2;
+  isError = false;
+  doctorsDisplayed = 4;
   doctorsLength = 0;
 
-  constructor(private doctorsService: DoctorsService) {
+  constructor(
+    private doctorsService: DoctorsService,
+    private snackbarService: SnackbarService
+  ) {
     this.isLoading = true;
     this.doctorsService.doctorsObs$.subscribe({
       next: data => {
@@ -28,7 +40,11 @@ export class DoctorsListComponent {
         this.doctors = data.slice(0, this.doctorsDisplayed);
         this.isLoading = false;
       },
-      error: () => (this.isLoading = false),
+      error: () => {
+        this.isLoading = false;
+        this.isError = true;
+        this.snackbarService.apiErrorSnackbar();
+      },
     });
     this.doctorsService.fetchDoctors();
   }
@@ -37,7 +53,7 @@ export class DoctorsListComponent {
     this.doctorsDisplayed = displayElementsUtil(
       this.doctorsDisplayed,
       this.doctorsLength,
-      2
+      4
     );
     this.doctorsService.fetchDoctors();
   }

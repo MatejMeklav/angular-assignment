@@ -1,23 +1,57 @@
 <div class="doctor-details-card">
   <div class="header">
-    <h6 class="mat-h6">{{ doctor?.name }}</h6>
+    <h6 class="{{ isLoading ? 'loading-skeleton mat-h6 name' : 'mat-h6' }}">
+      {{ doctor?.name }}
+    </h6>
     <a class="back-button" mat-fab extended routerLink="">
       <mat-icon>arrow_back</mat-icon>
       Back
     </a>
   </div>
-  <div class="list-content background">
-    <app-data-cell label="Username" [value]="doctor?.username" />
-    <app-data-cell label="Email" [value]="doctor?.email" />
-    <app-data-cell label="Phone" [value]="doctor?.phone" />
-    <app-data-cell label="Website" [value]="doctor?.website" />
-    <app-data-cell label="City" [value]="doctor?.address?.city" />
-    <app-data-cell label="Street" [value]="doctor?.address?.street" />
-    <app-data-cell label="Zipcode" [value]="doctor?.address?.zipcode" />
-    <app-data-cell label="Suite" [value]="doctor?.address?.suite" />
-    <app-data-cell label="Company" [value]="doctor?.company?.name" />
-    <app-data-cell
-      label="Company Catchphrase"
-      [value]="doctor?.company?.catchPhrase" />
-  </div>
+  @if (isError) {
+    <app-error />
+  } @else {
+    <div class="list-content background">
+      <app-data-cell
+        label="Username"
+        [value]="doctor?.username"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Email"
+        [value]="doctor?.email"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Phone"
+        [value]="doctor?.phone"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Website"
+        [value]="doctor?.website"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="City"
+        [value]="doctor?.address?.city"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Street"
+        [value]="doctor?.address?.street"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Zipcode"
+        [value]="doctor?.address?.zipcode"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Suite"
+        [value]="doctor?.address?.suite"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Company"
+        [value]="doctor?.company?.name"
+        [isLoading]="isLoading" />
+      <app-data-cell
+        label="Company Catchphrase"
+        [value]="doctor?.company?.catchPhrase"
+        [isLoading]="isLoading" />
+    </div>
+  }
 </div>
