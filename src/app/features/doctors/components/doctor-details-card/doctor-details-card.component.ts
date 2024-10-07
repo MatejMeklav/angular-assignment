@@ -5,7 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatFabAnchor, MatFabButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { ErrorComponent } from '../../../../shared/component/error/error.component';
+import { ErrorComponent } from '../../../../shared/components/error/error.component';
 
 @Component({
   selector: 'app-doctor-details-card',

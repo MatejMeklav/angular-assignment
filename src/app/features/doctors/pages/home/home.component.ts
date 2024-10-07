@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { DoctorsListComponent } from '../../components/doctors-list/doctors-list.component';
 import { TasksListComponent } from '../../components/tasks-list/tasks-list.component';
 import { Task } from '../../models/task.model';

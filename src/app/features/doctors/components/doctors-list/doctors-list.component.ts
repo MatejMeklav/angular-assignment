@@ -7,7 +7,7 @@ import { MatFabButton } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { displayElementsUtil } from '../../../../shared/utils/displayElementsUtil';
 import { SnackbarService } from '../../../../shared/services/snackbar.service';
-import { ErrorComponent } from '../../../../shared/component/error/error.component';
+import { ErrorComponent } from '../../../../shared/components/error/error.component';
 
 @Component({
   selector: 'app-doctors-list',
