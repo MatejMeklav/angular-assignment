@@ -8,9 +8,8 @@ describe('ErrorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ErrorComponent]
-    })
-    .compileComponents();
+      imports: [ErrorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ErrorComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,11 @@ describe('ErrorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display text', () => {
+    expect(fixture.debugElement.children[0].nativeElement.textContent).toBe(
+      'Something went wrong, please try again later.'
+    );
   });
 });

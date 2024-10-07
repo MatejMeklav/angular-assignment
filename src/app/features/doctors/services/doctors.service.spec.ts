@@ -1,57 +1,42 @@
-import { TestBed } from '@angular/core/testing';
 import { DoctorsService } from './doctors.service';
-import {
-  provideHttpClientTesting,
-  HttpTestingController,
-} from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 import { mockDoctors } from '../../../mock/mockDoctors';
 
 describe('DoctorsService', () => {
   let service: DoctorsService;
-  let httpMock: HttpTestingController;
+  let httpClientSpy: jasmine.SpyObj<HttpClient>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        DoctorsService,
-        provideHttpClient(),
-        provideHttpClientTesting(),
-      ],
-    });
-
-    service = TestBed.inject(DoctorsService);
-    httpMock = TestBed.inject(HttpTestingController);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    service = new DoctorsService(httpClientSpy);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('GetMethods', () => {
-    afterEach(() => {
-      const req = httpMock.expectOne('users');
-      expect(req.request.method).toBe('GET');
-      req.flush(mockDoctors);
-      httpMock.verify();
-    });
-
-    it('should retrieve the list of doctors via GET request', () => {
-      service.getDoctors().subscribe(doctors => {
+  it('should return doctors when getDoctors is called', () => {
+    httpClientSpy.get.and.returnValue(of(mockDoctors));
+    service.doctorsObs$.subscribe({
+      next: doctors => {
         expect(doctors).toEqual(mockDoctors);
-      });
+      },
+      error: () => fail(),
     });
+    service.fetchDoctors();
+  });
 
-    it('should retrieve a doctor by id', () => {
-      service.getDoctorById(1).subscribe(doctor => {
+  it('should return doctor details  when getDoctorDetails get called ', () => {
+    const id = 1;
+
+    httpClientSpy.get.and.returnValue(of(mockDoctors));
+    service.doctorDetailsObs$.subscribe({
+      next: doctor => {
         expect(doctor).toEqual(mockDoctors[0]);
-      });
+      },
+      error: () => fail(),
     });
-
-    it('should return undefined if doctor with given id does not exist', () => {
-      service.getDoctorById(3).subscribe(doctor => {
-        expect(doctor).toBeUndefined();
-      });
-    });
+    service.fetchDoctorDetails(id);
   });
 });

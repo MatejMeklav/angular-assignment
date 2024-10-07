@@ -26,9 +26,9 @@ describe('HeaderComponent', () => {
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     router = TestBed.inject(Router);
     location = TestBed.inject(Location);
+    fixture.detectChanges();
 
     logoIconDe = fixture.debugElement.query(By.css('.logo'));
     logoutIconDe = fixture.debugElement.query(By.css('.logout-logo'));
@@ -41,9 +41,11 @@ describe('HeaderComponent', () => {
   it('should display the correct title for Home Page', async () => {
     await router.navigate([homeRoute]);
     fixture.detectChanges();
+
     const titleElement = fixture.debugElement.query(
       By.css('.mat-h4')
     ).nativeElement;
+
     expect(titleElement.textContent).toBe('- Dashboard');
     expect(location.path()).toBe(homeRoute);
   });
@@ -51,32 +53,37 @@ describe('HeaderComponent', () => {
   it('should display the correct title for  Doctor Details Page ', async () => {
     await router.navigate([doctorDetailsRoute]);
     fixture.detectChanges();
+
     const titleElement = fixture.debugElement.query(
       By.css('.mat-h4')
     ).nativeElement;
+
     expect(titleElement.textContent).toBe('- Doctor details');
     expect(location.path()).toBe(doctorDetailsRoute);
   });
 
   it('should display the logo icon with correct fontIcon', () => {
-    expect(logoIconDe).toBeTruthy();
     const logoIcon = logoIconDe.nativeElement.getAttribute(
       'ng-reflect-font-icon'
     );
+
+    expect(logoIconDe).toBeTruthy();
     expect(logoIcon).toBe('medication');
   });
 
   it('should display the logout icon with correct fontIcon', () => {
-    expect(logoutIconDe).toBeTruthy();
     const logoutIcon = logoutIconDe.nativeElement.getAttribute(
       'ng-reflect-font-icon'
     );
+
+    expect(logoutIconDe).toBeTruthy();
     expect(logoutIcon).toBe('logout');
   });
 
   it('should have aria-label for logo and logout icons', () => {
     const logoIcon = logoIconDe.nativeElement;
     const logoutIcon = logoutIconDe.nativeElement;
+
     expect(logoIcon.getAttribute('aria-label')).toBe('logo icon');
     expect(logoutIcon.getAttribute('aria-label')).toBe('logout icon');
   });

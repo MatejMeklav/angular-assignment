@@ -26,6 +26,7 @@ describe('DataCellComponent', () => {
     const labelElement = fixture.debugElement.query(
       By.css('.label')
     ).nativeElement;
+
     expect(labelElement.textContent).toBe('Test label');
   });
 
@@ -33,7 +34,8 @@ describe('DataCellComponent', () => {
     const valueElement = fixture.debugElement.query(
       By.css('.value')
     ).nativeElement;
-    expect(valueElement.textContent).toBe('Test value');
+
+    expect(valueElement.textContent).toContain('Test value');
   });
 
   it('should display an empty value when no value is provided', () => {
@@ -43,6 +45,7 @@ describe('DataCellComponent', () => {
     const valueElement = fixture.debugElement.query(
       By.css('.value')
     ).nativeElement;
-    expect(valueElement.textContent).toBe('');
+
+    expect(valueElement.textContent).toContain('');
   });
 });

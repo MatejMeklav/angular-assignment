@@ -4,14 +4,12 @@ import { HomeComponent } from './home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { DoctorsListComponent } from '../../components/doctors-list/doctors-list.component';
 import { TasksListComponent } from '../../components/tasks-list/tasks-list.component';
-import { mockTasks } from '../../../../mock/mockTasks';
 import { TaskService } from '../../services/task-service';
-import { of } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let getTasksSpy: jasmine.Spy;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,8 +17,6 @@ describe('HomeComponent', () => {
       providers: [provideHttpClient(), TaskService],
     }).compileComponents();
 
-    const taskService = TestBed.inject(TaskService);
-    getTasksSpy = spyOn(taskService, 'getTasks').and.returnValue(of(mockTasks));
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -30,13 +26,12 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have tasks defined', () => {
-    expect(component.tasks).toBeDefined();
-  });
+  it('should display doctors and tasks list', () => {
+    const element = fixture.debugElement.query(
+      By.css('.dashboard-container')
+    ).nativeElement;
 
-  it('should match tasks to mocked tasks', () => {
-    component.tasks = mockTasks;
-    fixture.detectChanges();
-    expect(component.tasks).toBeDefined();
+    expect(element.children[0].nodeName).toBe('APP-DOCTORS-LIST');
+    expect(element.children[1].nodeName).toBe('APP-TASKS-LIST');
   });
 });

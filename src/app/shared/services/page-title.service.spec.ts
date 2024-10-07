@@ -9,7 +9,9 @@ describe('PageTitleService', () => {
   const dummyRoute = '/404';
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [PageTitleService],
+    });
     service = TestBed.inject(PageTitleService);
   });
 

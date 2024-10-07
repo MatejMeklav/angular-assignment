@@ -26,6 +26,7 @@ describe('InfoDisplayComponent', () => {
     const labelElement = fixture.debugElement.query(
       By.css('.mat-caption')
     ).nativeElement;
+
     expect(labelElement.textContent).toBe('Test label');
   });
 
@@ -33,6 +34,7 @@ describe('InfoDisplayComponent', () => {
     const valueElement = fixture.debugElement.query(
       By.css('.mat-h6')
     ).nativeElement;
+
     expect(valueElement.textContent).toBe('Test value');
   });
 });
