@@ -1,4 +1,25 @@
-# Untitled
+# Angular-assignment
+
+## Features
+
+- home/dashboard page with doctors and tasks list
+- doctor details page with corresponding tasks
+- show more/less "pagination" functionality
+- loading, error and empty state handling
+- snackbars for api errors
+- unit tests written
+
+## Possible improvements
+
+- add translation lib
+- backend should return pagination data
+
+## Most important articles and documentations used for assignment
+- [Project structure](https://www.gerome.dev/blog/standalone-angular-folder-structure/)
+- [Lint & Prettier config](https://dev.to/this-is-angular/configure-prettier-and-eslint-with-angular-526c)
+- [Angular docs](https://angular.dev/)
+- [Angular material lib](https://material.angular.io/)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
 
